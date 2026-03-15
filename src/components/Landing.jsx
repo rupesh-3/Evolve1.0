@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
 
 export default function Landing() {
-    const [timeLeft, setTimeLeft] = useState({ days: '--', hours: '--', mins: '--', secs: '--' });
-    const [isLive, setIsLive] = useState(false);
     const [openFaq, setOpenFaq] = useState(null);
 
     const faqs = [
@@ -82,38 +80,9 @@ export default function Landing() {
 
         window.addEventListener('scroll', handleScroll);
 
-        // ── Countdown ──
-        const releaseDate = new Date('2026-04-05T00:00:00+05:30').getTime();
-
-        const updateCountdown = () => {
-            const now = Date.now();
-            const diff = releaseDate - now;
-
-            if (diff <= 0) {
-                setIsLive(true);
-                return;
-            }
-
-            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            const secs = Math.floor((diff % (1000 * 60)) / 1000);
-
-            setTimeLeft({
-                days: String(days).padStart(2, '0'),
-                hours: String(hours).padStart(2, '0'),
-                mins: String(mins).padStart(2, '0'),
-                secs: String(secs).padStart(2, '0')
-            });
-        };
-
-        updateCountdown();
-        const intervalId = setInterval(updateCountdown, 1000);
-
         return () => {
             observer.disconnect();
             window.removeEventListener('scroll', handleScroll);
-            clearInterval(intervalId);
         };
     }, []);
 
@@ -134,8 +103,8 @@ export default function Landing() {
                     <img src="/logo-new.png" alt="EVOLVE 1.0" className="hero-logo" />
                 </div>
 
-                <div className="save-date-display reveal" style={{ '--delay': '0.2s' }}>
-                    Save the Date: April 06, 2026
+                <div className="save-date-display">
+                    APRIL 06, 2026
                 </div>
 
                 <p className="subtitle">An inter-college hackathon for social impact & Innovation — Innovate, Create & Empower through Technology</p>
@@ -151,10 +120,6 @@ export default function Landing() {
                     <div className="stat">
                         <div className="stat-num">₹15K</div>
                         <div className="stat-label">Prize Pool</div>
-                    </div>
-                    <div className="stat">
-                        <div className="stat-num">3</div>
-                        <div className="stat-label">Tracks: AI | IoT | Cyber</div>
                     </div>
                     <div className="stat">
                         <div className="stat-num">2-4</div>
@@ -244,33 +209,6 @@ export default function Landing() {
                         <h3>Awards & Closing Ceremony</h3>
                         <p>Winners announcement, certificates for all, and closing remarks.</p>
                     </div>
-                </div>
-            </section>
-
-            {/* Tracks */}
-            <section className="section" id="tracks">
-                <div className="section-header reveal">
-                    <div className="section-tag">Competition Tracks</div>
-                    <h2 className="section-title">Problem Statements</h2>
-                </div>
-                <div className="tracks-release-box reveal">
-                    <div className="release-icon">🚀</div>
-                    <h3 className="release-title">
-                        {isLive ? (
-                            <>Problem Statements are <span className="release-date">LIVE!</span></>
-                        ) : (
-                            <>Problem Statements will be released on<br /><span className="release-date">3rd April 2026, 5:00 PM</span></>
-                        )}
-                    </h3>
-                    <p className="release-subtitle">Stay tuned! All registered teams will receive an email notification when the problem statements go live.</p>
-                    {!isLive && (
-                        <div className="release-countdown">
-                            <div className="countdown-item"><span>{timeLeft.days}</span><small>Days</small></div>
-                            <div className="countdown-item"><span>{timeLeft.hours}</span><small>Hours</small></div>
-                            <div className="countdown-item"><span>{timeLeft.mins}</span><small>Minutes</small></div>
-                            <div className="countdown-item"><span>{timeLeft.secs}</span><small>Seconds</small></div>
-                        </div>
-                    )}
                 </div>
             </section>
 
@@ -446,20 +384,47 @@ export default function Landing() {
             </section>
 
             {/* Footer */}
-            <footer className="footer" style={{ padding: '60px 8%', background: '#05040a', borderTop: '1px solid rgba(160, 150, 210, 0.1)', textAlign: 'center', position: 'relative', zIndex: '1' }}>
-                <img src="/logo-new.png" alt="EVOLVE 1.0" style={{ height: '60px', margin: '0 auto 20px' }} />
-                <p style={{ color: 'var(--text-secondary)', marginBottom: '8px' }}>An inter-college hackathon for social impact & Innovation</p>
-                <p style={{ color: 'var(--accent-3)', fontWeight: 'bold', letterSpacing: '1px', marginBottom: '30px', fontSize: '0.9rem' }}>BREAK. BUILD. BECOME.</p>
+            <footer className="footer" style={{ padding: '80px 8% 40px', background: 'linear-gradient(to bottom, #05040a, #0a0816)', borderTop: '1px solid rgba(155, 122, 232, 0.2)', position: 'relative', zIndex: '1', overflow: 'hidden' }}>
+                <div className="footer-glow" style={{ position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)', width: '600px', height: '1px', background: 'linear-gradient(90deg, transparent, var(--accent-3), transparent)', opacity: 0.5 }}></div>
+                <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '40px', textAlign: 'left', marginBottom: '60px' }}>
 
-                <div className="footer-links" style={{ display: 'flex', gap: '30px', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '40px' }}>
-                    <a href="#about" style={{ color: 'var(--text-secondary)', textDecoration: 'none', transition: 'color 0.3s', fontWeight: '500' }}>About</a>
-                    <a href="#timeline" style={{ color: 'var(--text-secondary)', textDecoration: 'none', transition: 'color 0.3s', fontWeight: '500' }}>Timeline</a>
-                    <a href="#rules" style={{ color: 'var(--text-secondary)', textDecoration: 'none', transition: 'color 0.3s', fontWeight: '500' }}>Rules</a>
-                    <a href="#faq" style={{ color: 'var(--text-secondary)', textDecoration: 'none', transition: 'color 0.3s', fontWeight: '500' }}>FAQ</a>
-                    <Link to="/register" style={{ color: 'var(--accent-3)', textDecoration: 'none', transition: 'color 0.3s', fontWeight: '600' }}>Register</Link>
+                    {/* Brand Col */}
+                    <div>
+                        <img src="/logo-new.png" alt="EVOLVE 1.0" style={{ height: '70px', marginBottom: '20px' }} />
+                        <p style={{ color: 'var(--text-secondary)', fontSize: '1rem', lineHeight: '1.6', marginBottom: '20px' }}>A premier inter-college hackathon fostering social impact & innovation at Rajalakshmi Institute of Technology.</p>
+                        <p style={{ color: 'var(--accent-1)', fontWeight: 'bold', letterSpacing: '2px', fontSize: '1.1rem' }}>BREAK. BUILD. BECOME.</p>
+                    </div>
+
+                    {/* Quick Links Col */}
+                    <div>
+                        <h4 style={{ color: 'white', fontSize: '1.2rem', marginBottom: '25px', position: 'relative', display: 'inline-block' }}>Quick Links
+                            <span style={{ position: 'absolute', bottom: '-8px', left: 0, width: '40px', height: '2px', background: 'var(--accent-3)' }}></span>
+                        </h4>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
+                            <a href="#about" style={{ color: 'var(--text-secondary)', textDecoration: 'none', transition: 'color 0.3s' }}>About EVOLVE</a>
+                            <a href="#timeline" style={{ color: 'var(--text-secondary)', textDecoration: 'none', transition: 'color 0.3s' }}>Schedule</a>
+                            <a href="#rules" style={{ color: 'var(--text-secondary)', textDecoration: 'none', transition: 'color 0.3s' }}>Rulebook</a>
+                            <a href="#faq" style={{ color: 'var(--text-secondary)', textDecoration: 'none', transition: 'color 0.3s' }}>FAQs</a>
+                        </div>
+                    </div>
+
+                    {/* Contact Col */}
+                    <div>
+                        <h4 style={{ color: 'white', fontSize: '1.2rem', marginBottom: '25px', position: 'relative', display: 'inline-block' }}>Event Details
+                            <span style={{ position: 'absolute', bottom: '-8px', left: 0, width: '40px', height: '2px', background: 'var(--accent-3)' }}></span>
+                        </h4>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '15px', color: 'var(--text-secondary)' }}>
+                            <p><strong style={{ color: 'var(--text-primary)' }}>Date:</strong> April 06, 2026</p>
+                            <p><strong style={{ color: 'var(--text-primary)' }}>Venue:</strong> Rajalakshmi Institute of Technology<br />Chennai, Tamil Nadu</p>
+                            <p><strong style={{ color: 'var(--text-primary)' }}>Email:</strong> <a href="mailto:evolve.cce@gmail.com" style={{ color: 'var(--accent-3)', textDecoration: 'none' }}>evolve.cce@gmail.com</a></p>
+                            <Link to="/register" style={{ marginTop: '10px', display: 'inline-block', color: 'var(--accent-1)', fontWeight: 'bold', textDecoration: 'none' }}>Register Now →</Link>
+                        </div>
+                    </div>
                 </div>
 
-                <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>© 2026 EVOLVE 1.0 @ Rajalakshmi Institute of Technology. All rights reserved.</p>
+                <div style={{ maxWidth: '1200px', margin: '0 auto', paddingTop: '30px', borderTop: '1px solid rgba(255,255,255,0.05)', display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: '20px' }}>
+                    <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', margin: 0 }}>© 2026 EVOLVE 1.0 @ Rajalakshmi Institute of Technology. All rights reserved.</p>
+                </div>
             </footer>
         </>
     );

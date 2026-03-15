@@ -34,7 +34,7 @@ export default function Navbar() {
     return (
         <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
             <Link to="/" className="logo">
-                <img src="/logo-new.png" alt="EVOLVE 1.0" />
+                <img src={isHome ? "/college-logo.png" : "/logo-new.png"} alt={isHome ? "Rajalakshmi Institute of Technology" : "EVOLVE 1.0"} style={{ height: isHome ? '50px' : '40px' }} />
             </Link>
 
             <ul className={`nav-links ${menuOpen ? 'open' : ''}`}>
