@@ -10,11 +10,5 @@
       "destination": "/index.html"
     }
   ],
-  "crons": [
-    {
-      "path": "/api/cron/check-confirmed",
-      "schedule": "*/10 * * * *"
-    }
-  ],
   "cleanUrls": true
 }
