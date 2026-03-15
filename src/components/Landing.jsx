@@ -1,9 +1,38 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import Navbar from './Navbar';
 
 export default function Landing() {
     const [timeLeft, setTimeLeft] = useState({ days: '--', hours: '--', mins: '--', secs: '--' });
     const [isLive, setIsLive] = useState(false);
+    const [openFaq, setOpenFaq] = useState(null);
+
+    const faqs = [
+        {
+            q: "Who can participate?",
+            a: "Students from any college or university pursuing their undergraduate or postgraduate degrees can participate."
+        },
+        {
+            q: "What is the team size?",
+            a: "A team must consist of 2 to 4 members. Cross-college teams are allowed."
+        },
+        {
+            q: "Is there a registration fee?",
+            a: "Yes, there is a registration fee of ₹200 per team."
+        },
+        {
+            q: "Do we need to build the project from scratch?",
+            a: "Yes, the core development should happen during the hackathon. You can use open-source libraries and APIs, but you must adapt to a surprise secret challenge given on the spot!"
+        },
+        {
+            q: "What should we bring?",
+            a: "Bring your laptops, chargers, and required software tools. We will provide Wi-Fi, power backup, workspace, and refreshments."
+        }
+    ];
+
+    const toggleFaq = (index) => {
+        setOpenFaq(openFaq === index ? null : index);
+    };
 
     // Refs for parallax
     const heroRef = useRef(null);
@@ -74,11 +103,12 @@ export default function Landing() {
 
     return (
         <>
+            <Navbar />
             {/* Hero */}
             <section className="hero" id="hero" ref={heroRef}>
                 <div className="hero-badge" ref={badgeRef}>
                     <span className="dot"></span>
-                    Registration Open • March 2026
+                    Registration Open • Save the Date: 6th April 2026
                 </div>
 
                 <div className="hero-logo-wrapper" ref={heroLogoRef}>
@@ -348,6 +378,32 @@ export default function Landing() {
                             <li>By participating in EVOLVE, teams agree to <strong>abide by all rules and guidelines</strong> stated in this rulebook and follow the instructions provided by the organizing committee.</li>
                         </ul>
                     </div>
+                </div>
+            </section>
+
+            {/* FAQ */}
+            <section className="section" id="faq">
+                <div className="section-header reveal">
+                    <div className="section-tag">Got Questions?</div>
+                    <h2 className="section-title">Frequently Asked Questions</h2>
+                </div>
+                <div className="faq-grid">
+                    {faqs.map((faq, idx) => (
+                        <div
+                            key={idx}
+                            className={`faq-item reveal ${openFaq === idx ? 'open' : ''}`}
+                            onClick={() => toggleFaq(idx)}
+                            style={{ '--delay': `${idx * 0.1}s` }}
+                        >
+                            <div className="faq-question">
+                                <h3>{faq.q}</h3>
+                                <span className="faq-icon">{openFaq === idx ? '−' : '+'}</span>
+                            </div>
+                            <div className="faq-answer">
+                                <p>{faq.a}</p>
+                            </div>
+                        </div>
+                    ))}
                 </div>
             </section>
 

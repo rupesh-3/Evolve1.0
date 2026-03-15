@@ -68,6 +68,13 @@ export default function Navbar() {
                 </li>
                 <li>
                     {isHome ? (
+                        <a href="#faq" onClick={(e) => handleScrollTo(e, 'faq')}>FAQ</a>
+                    ) : (
+                        <Link to="/#faq">FAQ</Link>
+                    )}
+                </li>
+                <li>
+                    {isHome ? (
                         <a href="#coordinators" onClick={(e) => handleScrollTo(e, 'coordinators')}>Contact</a>
                     ) : (
                         <Link to="/#coordinators">Contact</Link>
