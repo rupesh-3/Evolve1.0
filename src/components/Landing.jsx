@@ -178,6 +178,9 @@ export default function Landing() {
                     <h2 className="section-title">Timeline</h2>
                     <p className="section-desc">A packed day of innovation, challenges, and celebration.</p>
                 </div>
+                <div className="timeline-date reveal" style={{ '--delay': '0.05s' }}>
+                    Event Date: 6th April 2026
+                </div>
                 <div className="timeline">
                     <div className="timeline-item reveal" style={{ '--delay': '0s' }}>
                         <div className="time">8:30 AM</div>
