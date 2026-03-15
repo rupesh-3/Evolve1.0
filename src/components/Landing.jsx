@@ -9,24 +9,40 @@ export default function Landing() {
 
     const faqs = [
         {
-            q: "Who can participate?",
-            a: "Students from any college or university pursuing their undergraduate or postgraduate degrees can participate."
+            q: "Who can participate in EVOLVE 1.0?",
+            a: "EVOLVE 1.0 is open to students from colleges and universities. Participants must register in teams to take part in the hackathon."
         },
         {
-            q: "What is the team size?",
-            a: "A team must consist of 2 to 4 members. Cross-college teams are allowed."
+            q: "What is the team size allowed?",
+            a: "Each team must consist of 2 to 4 members."
         },
         {
             q: "Is there a registration fee?",
-            a: "Yes, there is a registration fee of ₹200 per team."
+            a: "Yes. The registration fee is ₹200 per team."
         },
         {
-            q: "Do we need to build the project from scratch?",
-            a: "Yes, the core development should happen during the hackathon. You can use open-source libraries and APIs, but you must adapt to a surprise secret challenge given on the spot!"
+            q: "When and where will the event take place?",
+            a: "EVOLVE 1.0 will be held on April 6, 2026, at Rajalakshmi Institute of Technology."
         },
         {
-            q: "What should we bring?",
-            a: "Bring your laptops, chargers, and required software tools. We will provide Wi-Fi, power backup, workspace, and refreshments."
+            q: "What are the domains or themes of the hackathon?",
+            a: "Participants will work on challenges related to Artificial Intelligence, Internet of Things, and Cybersecurity, with a focus on social impact and innovation."
+        },
+        {
+            q: "What should participants bring to the event?",
+            a: "Participants must bring their own laptops, chargers, and any required development tools."
+        },
+        {
+            q: "How will the projects be judged?",
+            a: "Projects will be evaluated based on innovation, relevance to the theme, technical feasibility, presentation quality, and problem-solving approach."
+        },
+        {
+            q: "Will certificates be provided?",
+            a: "Yes. Participation certificates will be provided to all participants, and trophies/prizes will be awarded to the winning teams."
+        },
+        {
+            q: "How can we contact the organizers for queries?",
+            a: "For any questions, participants can contact the organizing team at: 📧 evolve.cce@gmail.com"
         }
     ];
 
@@ -108,7 +124,7 @@ export default function Landing() {
             <section className="hero" id="hero" ref={heroRef}>
                 <div className="hero-badge" ref={badgeRef}>
                     <span className="dot"></span>
-                    Registration Open • Save the Date: 6th April 2026
+                    Registrations Open
                 </div>
 
                 <div className="hero-logo-wrapper" ref={heroLogoRef}>
@@ -116,6 +132,10 @@ export default function Landing() {
                     <div className="hero-logo-ring hero-logo-ring-1"></div>
                     <div className="hero-logo-ring hero-logo-ring-2"></div>
                     <img src="/logo-new.png" alt="EVOLVE 1.0" className="hero-logo" />
+                </div>
+
+                <div className="save-date-display reveal" style={{ '--delay': '0.2s' }}>
+                    Save the Date: April 06, 2026
                 </div>
 
                 <p className="subtitle">An inter-college hackathon for social impact & Innovation — Innovate, Create & Empower through Technology</p>
@@ -129,20 +149,24 @@ export default function Landing() {
 
                 <div className="hero-stats" ref={statsRef}>
                     <div className="stat">
+                        <div className="stat-num">₹15K</div>
+                        <div className="stat-label">Prize Pool</div>
+                    </div>
+                    <div className="stat">
+                        <div className="stat-num">3</div>
+                        <div className="stat-label">Tracks: AI | IoT | Cyber</div>
+                    </div>
+                    <div className="stat">
                         <div className="stat-num">2-4</div>
                         <div className="stat-label">Team Size</div>
                     </div>
                     <div className="stat">
                         <div className="stat-num">₹200</div>
-                        <div className="stat-label">Per Team</div>
+                        <div className="stat-label">Reg Fee</div>
                     </div>
                     <div className="stat">
-                        <div className="stat-num">3</div>
-                        <div className="stat-label">Tracks</div>
-                    </div>
-                    <div className="stat">
-                        <div className="stat-num">1 Day</div>
-                        <div className="stat-label">Event</div>
+                        <div className="stat-num" style={{ fontSize: '1.2rem', padding: '8px 0' }}>RIT</div>
+                        <div className="stat-label">Venue</div>
                     </div>
                 </div>
 
@@ -257,27 +281,27 @@ export default function Landing() {
                     <h2 className="section-title">Judging Criteria</h2>
                 </div>
                 <div className="judging-grid">
-                    <div className="judge-card reveal" style={{ '--delay': '0s' }}>
+                    <div className="judge-card">
                         <div className="judge-icon">✨</div>
                         <h3>Innovation</h3>
                         <p>Originality and creativity of the solution. How novel is the approach?</p>
                     </div>
-                    <div className="judge-card reveal" style={{ '--delay': '0.08s' }}>
+                    <div className="judge-card">
                         <div className="judge-icon">🌍</div>
                         <h3>SDG Social Impact</h3>
                         <p>Depth and relevance of the solution's impact on social issues and alignment with SDG goals.</p>
                     </div>
-                    <div className="judge-card reveal" style={{ '--delay': '0.16s' }}>
+                    <div className="judge-card">
                         <div className="judge-icon">⚙️</div>
                         <h3>Feasibility</h3>
                         <p>Technical viability and potential for real-world deployment.</p>
                     </div>
-                    <div className="judge-card reveal" style={{ '--delay': '0.24s' }}>
+                    <div className="judge-card">
                         <div className="judge-icon">🎤</div>
                         <h3>Presentation</h3>
                         <p>Clarity, confidence, and effectiveness of the pitch.</p>
                     </div>
-                    <div className="judge-card reveal" style={{ '--delay': '0.32s' }}>
+                    <div className="judge-card">
                         <div className="judge-icon">🔐</div>
                         <h3>Challenge Adaptation</h3>
                         <p>How well the team incorporated the surprise challenge features.</p>
@@ -295,88 +319,32 @@ export default function Landing() {
                     <div className="rule-card reveal" style={{ '--delay': '0s' }}>
                         <div className="rule-num">1</div>
                         <h3>Team Composition</h3>
-                        <ul>
-                            <li>Each team must consist of a minimum of <strong>2</strong> and a maximum of <strong>4</strong> participants.</li>
-                            <li>Participants may belong to the same or different departments or institutions.</li>
-                            <li>Each participant can be part of <strong>only one team</strong>.</li>
-                        </ul>
+                        <p>Teams must have <strong>2 to 4 members</strong> from any college or department. Each participant can join only one team.</p>
                     </div>
-                    <div className="rule-card reveal" style={{ '--delay': '0.06s' }}>
+                    <div className="rule-card reveal" style={{ '--delay': '0.1s' }}>
                         <div className="rule-num">2</div>
-                        <h3>Eligibility</h3>
-                        <ul>
-                            <li>Students from <strong>any college or university</strong> are eligible to participate for the event.</li>
-                            <li>Participants must register through the <strong>official registration platform</strong> before the event.</li>
-                        </ul>
+                        <h3>Project Development</h3>
+                        <p>Build original solutions during the hackathon timeline. AI tools are permitted, but the core implementation must be yours.</p>
                     </div>
-                    <div className="rule-card reveal" style={{ '--delay': '0.12s' }}>
+                    <div className="rule-card reveal" style={{ '--delay': '0.2s' }}>
                         <div className="rule-num">3</div>
-                        <h3>Project Development Guidelines</h3>
-                        <ul>
-                            <li>All projects must be developed within the <strong>hackathon timeline</strong>.</li>
-                            <li>Teams are encouraged to build <strong>original and innovative solutions</strong> addressing the given problem statements.</li>
-                        </ul>
-                    </div>
-                    <div className="rule-card reveal" style={{ '--delay': '0.18s' }}>
-                        <div className="rule-num">4</div>
-                        <h3>Use of Tools and Technologies</h3>
-                        <ul>
-                            <li>Participants are free to use <strong>any programming language, framework, or development platform</strong>.</li>
-                            <li>AI tools may be used for assistance, but the <strong>core idea, implementation, and development</strong> must be carried out by the team members themselves.</li>
-                        </ul>
-                    </div>
-                    <div className="rule-card reveal" style={{ '--delay': '0.24s' }}>
-                        <div className="rule-num">5</div>
-                        <h3>Equipment and Resources</h3>
-                        <ul>
-                            <li>Participants must bring their own <strong>laptops, chargers, and required software tools</strong>.</li>
-                            <li>The organizing team will provide basic infrastructure such as workspace, internet access, and power supply.</li>
-                        </ul>
+                        <h3>Equipment</h3>
+                        <p>Bring your own laptops and chargers. We provide workspace, internet access, and power supply.</p>
                     </div>
                     <div className="rule-card reveal" style={{ '--delay': '0.3s' }}>
-                        <div className="rule-num">6</div>
+                        <div className="rule-num">4</div>
                         <h3>Event Format</h3>
-                        <ul>
-                            <li>Registered teams will receive the <strong>official problem statements</strong>.</li>
-                            <li>Teams may begin preparing their solution remotely within the permitted time window.</li>
-                            <li>During the event, teams will refine their solutions and incorporate an <strong>additional challenge</strong> introduced by the organizers on the day of the event.</li>
-                            <li>Teams will present their final solution to the judging panel.</li>
-                        </ul>
+                        <p>Pre-preparation is allowed, but teams must adapt to an <strong>on-the-spot surprise challenge</strong> introduced on event day.</p>
                     </div>
-                    <div className="rule-card reveal" style={{ '--delay': '0.36s' }}>
-                        <div className="rule-num">7</div>
-                        <h3>Judging Criteria</h3>
-                        <ul>
-                            <li>Innovation and originality</li>
-                            <li>Impact and relevance to the theme</li>
-                            <li>Technical feasibility and implementation</li>
-                            <li>Quality of presentation and demonstration</li>
-                            <li>Overall problem-solving approach</li>
-                        </ul>
+                    <div className="rule-card reveal" style={{ '--delay': '0.4s' }}>
+                        <div className="rule-num">5</div>
+                        <h3>Evaluation</h3>
+                        <p>Judged on innovation, impact, technical feasibility, presentation quality, and challenge adaptation.</p>
                     </div>
-                    <div className="rule-card reveal" style={{ '--delay': '0.42s' }}>
-                        <div className="rule-num">8</div>
+                    <div className="rule-card reveal" style={{ '--delay': '0.5s' }}>
+                        <div className="rule-num">6</div>
                         <h3>Code of Conduct</h3>
-                        <ul>
-                            <li>Participants must maintain <strong>professional conduct</strong> throughout the event.</li>
-                            <li>Teams are expected to respect judges, organizers, volunteers, and fellow participants.</li>
-                            <li>Any form of <strong>misconduct, plagiarism, or violation of rules</strong> may result in immediate disqualification.</li>
-                        </ul>
-                    </div>
-                    <div className="rule-card reveal" style={{ '--delay': '0.48s' }}>
-                        <div className="rule-num">9</div>
-                        <h3>Decision of Judges</h3>
-                        <ul>
-                            <li>The decision of the judging panel will be <strong>final and binding</strong>.</li>
-                            <li>The organizing committee reserves the right to modify event procedures if necessary to ensure fair evaluation.</li>
-                        </ul>
-                    </div>
-                    <div className="rule-card reveal" style={{ '--delay': '0.54s' }}>
-                        <div className="rule-num">10</div>
-                        <h3>Compliance</h3>
-                        <ul>
-                            <li>By participating in EVOLVE, teams agree to <strong>abide by all rules and guidelines</strong> stated in this rulebook and follow the instructions provided by the organizing committee.</li>
-                        </ul>
+                        <p>Professional behavior is required. Plagiarism or violating rules leads to immediate disqualification. Judges' decisions are final.</p>
                     </div>
                 </div>
             </section>
@@ -411,29 +379,56 @@ export default function Landing() {
             <section className="section" id="coordinators">
                 <div className="section-header reveal">
                     <div className="section-tag">Get In Touch</div>
-                    <h2 className="section-title">Student Coordinators</h2>
+                    <h2 className="section-title">Coordinators</h2>
                 </div>
+
+                <h3 className="sub-heading reveal" style={{ textAlign: 'center', marginBottom: '30px', color: 'var(--accent-3)', fontSize: '1.5rem' }}>Faculty & Administration</h3>
+                <div className="about-grid" style={{ marginBottom: '60px' }}>
+                    <div className="about-card reveal" style={{ '--delay': '0s', textAlign: 'center' }}>
+                        <div className="card-icon" style={{ margin: '0 auto 20px' }}>👩‍🏫</div>
+                        <h3>Mrs. Monikapreethi S K</h3>
+                        <p style={{ color: 'var(--text-primary)', marginTop: '8px' }}>Faculty Co-ordinator</p>
+                    </div>
+                    <div className="about-card reveal" style={{ '--delay': '0.1s', textAlign: 'center' }}>
+                        <div className="card-icon" style={{ margin: '0 auto 20px' }}>👨‍🏫</div>
+                        <h3>Dr. E. Ganesh</h3>
+                        <p style={{ color: 'var(--text-primary)', marginTop: '8px' }}>HOD</p>
+                    </div>
+                    <div className="about-card reveal" style={{ '--delay': '0.2s', textAlign: 'center' }}>
+                        <div className="card-icon" style={{ margin: '0 auto 20px' }}>🎓</div>
+                        <h3>Dr. Maheswari R</h3>
+                        <p style={{ color: 'var(--text-primary)', marginTop: '8px' }}>Principal</p>
+                    </div>
+                </div>
+
+                <h3 className="sub-heading reveal" style={{ textAlign: 'center', marginBottom: '30px', color: 'var(--accent-3)', fontSize: '1.5rem' }}>Student Coordinators</h3>
                 <div className="about-grid">
-                    <div className="about-card reveal" style={{ '--delay': '0s' }}>
-                        <div className="card-icon">📞</div>
+                    <div className="about-card reveal" style={{ '--delay': '0s', textAlign: 'center' }}>
+                        <div className="card-icon" style={{ margin: '0 auto 20px' }}>📞</div>
                         <h3>Rupesh S</h3>
                         <p><a href="tel:9894646003" style={{ color: 'var(--text-primary)', textDecoration: 'none', fontWeight: 'bold', fontSize: '1.2rem', letterSpacing: '1px' }}>9894646003</a></p>
                     </div>
-                    <div className="about-card reveal" style={{ '--delay': '0.1s' }}>
-                        <div className="card-icon">📞</div>
+                    <div className="about-card reveal" style={{ '--delay': '0.1s', textAlign: 'center' }}>
+                        <div className="card-icon" style={{ margin: '0 auto 20px' }}>📞</div>
                         <h3>Adithyaa A</h3>
                         <p><a href="tel:7200909287" style={{ color: 'var(--text-primary)', textDecoration: 'none', fontWeight: 'bold', fontSize: '1.2rem', letterSpacing: '1px' }}>7200909287</a></p>
                     </div>
-                    <div className="about-card reveal" style={{ '--delay': '0.2s' }}>
-                        <div className="card-icon">📞</div>
+                    <div className="about-card reveal" style={{ '--delay': '0.2s', textAlign: 'center' }}>
+                        <div className="card-icon" style={{ margin: '0 auto 20px' }}>📞</div>
                         <h3>Satyanarayanaa H</h3>
                         <p><a href="tel:8122950540" style={{ color: 'var(--text-primary)', textDecoration: 'none', fontWeight: 'bold', fontSize: '1.2rem', letterSpacing: '1px' }}>8122950540</a></p>
                     </div>
-                    <div className="about-card reveal" style={{ '--delay': '0.3s' }}>
-                        <div className="card-icon">📞</div>
+                    <div className="about-card reveal" style={{ '--delay': '0.3s', textAlign: 'center' }}>
+                        <div className="card-icon" style={{ margin: '0 auto 20px' }}>📞</div>
                         <h3>Mugesh M N</h3>
                         <p><a href="tel:9042553150" style={{ color: 'var(--text-primary)', textDecoration: 'none', fontWeight: 'bold', fontSize: '1.2rem', letterSpacing: '1px' }}>9042553150</a></p>
                     </div>
+                </div>
+
+                <div className="queries-box reveal" style={{ marginTop: '50px', padding: '30px', background: 'var(--bg-card)', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-glass)', textAlign: 'center', backdropFilter: 'blur(10px)' }}>
+                    <p style={{ fontSize: '1.2rem', color: 'var(--text-primary)' }}>
+                        Have any Queries? <br /><br /> Email us at: <br /> <a href="mailto:evolve.cce@gmail.com" style={{ color: 'var(--accent-3)', fontWeight: 'bold', fontSize: '1.5rem', letterSpacing: '1px', textDecoration: 'none', display: 'inline-block', marginTop: '10px' }}>evolve.cce@gmail.com</a>
+                    </p>
                 </div>
             </section>
 
@@ -451,18 +446,20 @@ export default function Landing() {
             </section>
 
             {/* Footer */}
-            <footer className="footer">
-                <img src="/logo.png" alt="EVOLVE 1.0" className="footer-logo" />
-                <p>An inter-college hackathon for social impact & Innovation</p>
-                <p>Innovate · Create · Empower</p>
-                <div className="footer-links">
-                    <a href="#about">About</a>
-                    <a href="#timeline">Timeline</a>
-                    <a href="#rules">Rules</a>
-                    <a href="#coordinators">Contact</a>
-                    <Link to="/register">Register</Link>
+            <footer className="footer" style={{ padding: '60px 8%', background: '#05040a', borderTop: '1px solid rgba(160, 150, 210, 0.1)', textAlign: 'center', position: 'relative', zIndex: '1' }}>
+                <img src="/logo-new.png" alt="EVOLVE 1.0" style={{ height: '60px', margin: '0 auto 20px' }} />
+                <p style={{ color: 'var(--text-secondary)', marginBottom: '8px' }}>An inter-college hackathon for social impact & Innovation</p>
+                <p style={{ color: 'var(--accent-3)', fontWeight: 'bold', letterSpacing: '1px', marginBottom: '30px', fontSize: '0.9rem' }}>BREAK. BUILD. BECOME.</p>
+
+                <div className="footer-links" style={{ display: 'flex', gap: '30px', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '40px' }}>
+                    <a href="#about" style={{ color: 'var(--text-secondary)', textDecoration: 'none', transition: 'color 0.3s', fontWeight: '500' }}>About</a>
+                    <a href="#timeline" style={{ color: 'var(--text-secondary)', textDecoration: 'none', transition: 'color 0.3s', fontWeight: '500' }}>Timeline</a>
+                    <a href="#rules" style={{ color: 'var(--text-secondary)', textDecoration: 'none', transition: 'color 0.3s', fontWeight: '500' }}>Rules</a>
+                    <a href="#faq" style={{ color: 'var(--text-secondary)', textDecoration: 'none', transition: 'color 0.3s', fontWeight: '500' }}>FAQ</a>
+                    <Link to="/register" style={{ color: 'var(--accent-3)', textDecoration: 'none', transition: 'color 0.3s', fontWeight: '600' }}>Register</Link>
                 </div>
-                <p style={{ marginTop: '24px', fontSize: '0.8rem' }}>© 2026 EVOLVE 1.0. All rights reserved.</p>
+
+                <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>© 2026 EVOLVE 1.0 @ Rajalakshmi Institute of Technology. All rights reserved.</p>
             </footer>
         </>
     );
